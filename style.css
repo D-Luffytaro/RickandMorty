@@ -1,17 +1,17 @@
 body {
-  /* border: 1px red solid; */
   font-family: "VT323", monospace;
   text-align: center;
+  background: linear-gradient(113deg, #6b49f8 0%, #f76df8 100%);
 }
 
 .container {
-  /* background-color: aliceblue; */
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 
   h1 {
     margin-bottom: 50px;
+    color: white;
   }
 }
 
@@ -22,6 +22,8 @@ body {
   column-gap: 100px;
 }
 
+/* CARD */
+
 .character-card {
   background-color: white;
   height: 420px;
@@ -30,24 +32,28 @@ body {
   box-shadow: 1px 1px 0px 1px #000;
   margin: auto;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
   img {
     width: 200px;
     height: 200px;
     border: 2px solid #000;
     margin-top: 40px;
+    margin-bottom: auto;
   }
 
   h2 {
-    text-align: center;
     font-family: "IBM Plex Mono";
     font-size: 20px;
-    font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 45px;
+    max-width: 200px;
+    margin: 0;
+    word-wrap: break-word;
+    text-align: center;
   }
 }
 
@@ -55,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .status-dot {
@@ -74,16 +80,18 @@ body {
   background-color: #fe015c;
 }
 
+.status p {
+  margin: 0;
+}
+
 .card-footer {
   background: white;
   border-top: 1px solid var(--System-Black, #000);
   display: flex;
   justify-content: end;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 280px;
   height: 28px;
+  margin-top: auto;
 }
 
 .btn-icon {
@@ -91,4 +99,42 @@ body {
   background: transparent;
   border: none;
   border-left: #000 1px solid;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background-color: #f76df8;
+}
+
+/* Media query */
+
+@media (max-width: 1324px) {
+  .characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background: linear-gradient(151deg, #6d4bf8 0%, #f46df8 100%);
+  }
+
+  .characters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(151deg, #6d4bf8 0%, #f46df8 100%);
+  }
+
+  .characters-grid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
 }
