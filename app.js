@@ -57,4 +57,12 @@ function showAllCharacters() {
     displayCharacters(allCharacters);
 }
 
+function filterCharactersNames() {
+    const nameInput = document.getElementById('name-input').value.toLowerCase();
+    const filteredCharacters = allCharacters.filter(character =>
+        character.name.toLowerCase().includes(nameInput)
+    );
+    displayCharacters(filteredCharacters);
+}
+
 fetchCharacters();
