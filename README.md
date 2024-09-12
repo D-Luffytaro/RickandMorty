@@ -1,7 +1,5 @@
 # test Technique "Brandify"
 
-![logo](/brandify_logo.svg)
-
 #### Documentation de Référence
 
 -   Utilisez la documentation de l'API Rick and Morty : [Rick and Morty API Documentation](https://rickandmortyapi.com/documentation/)
@@ -9,8 +7,6 @@
 #### Fonctionnalités Demandées
 
 **Page d'Accueil (Index)**
-
-![logo](/brandify_index.png)
 
 -   **Logo** : Cliquer sur le logo "Brandify" doit renvoyer à la page d'accueil.
 -   **Liste des Personnages** : Afficher la liste de tous les personnages, paginée.
@@ -22,8 +18,6 @@
     -   Statut (Vivant ou Mort)
 
 **Page de Détail du Personnage**
-
-![logo](/brandify_details.png)
 
 -   **Bouton de Retour** : Un bouton pour retourner à la page d'accueil.
 -   **Informations Minimales sur le Personnage** :
