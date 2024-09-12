@@ -45,20 +45,54 @@ function displayCharacters(characters) {
 
 function showCharacterDetails(character) {
     const detailsSection = document.getElementById('character-details');
-    detailsSection.innerHTML = `
-        <h2>${character.name}</h2>
-        <img src="${character.image}" alt="${character.name}">
-        <p><strong>Status:</strong> ${character.status}</p>
-        <p><strong>Species:</strong> ${character.species}</p>
-        <p><strong>Gender:</strong> ${character.gender}</p>
-        <p><strong>Location:</strong> ${character.location.name}</p>
-    `;
+    const statusClass = character.status.toLowerCase() === 'alive' ? 'alive' : 'dead';
 
+    detailsSection.innerHTML = `
+    <menu>
+        <li></li>
+        <li class="link" onclick="showCharacterList()">Back to menu</li>
+        <li class="time"><time datetime=""></time></li>
+    </menu>
+    <div class="all-info">
+        <img src="${character.image}" alt="${character.name}">
+    
+        <div class="info-character">
+            <h2>${character.name}</h2>
+            <div class="status">
+                <span class="status-dot ${statusClass}"></span>
+                <span>${character.status} - ${character.species}</span>
+            </div>
+            <p><span class="light-grey">Gender:</span> ${character.gender}</p>
+            <p><span class="light-grey">Origin:</span> ${character.origin.name}</p>
+            <p><span class="light-grey">Last known location:</span> ${character.location.name}</p>
+        </div>
+    </div>
+`;
     document.getElementById('character-list-page').classList.add('hidden');
     document.getElementById('character-details-page').classList.remove('hidden');
 
     document.querySelector('.controls-container').classList.add('hidden');
     history.pushState({ page: 'details', characterId: character.id }, '', `?character=${character.id}`);
+}
+
+const rootEl = document.documentElement;
+window.setInterval(setTime, 1000);
+
+function setTime() {
+    const ticker = new Date();
+    const hrs = ticker.getHours();
+    const min = ticker.getMinutes();
+    const ampm = hrs >= 12 ? 'AM' : 'PM';
+    const timeEl = document.querySelector('time');
+    timeEl.textContent = `${hrs > 12 ? hrs - 12 : hrs}:${`${min}`.padStart(2, '0')} ${ampm}`;
+    timeEl.dateTime = `${hrs}:${min}`;
+}
+
+function showCharacterList() {
+    document.getElementById('character-list-page').classList.remove('hidden');
+    document.getElementById('character-details-page').classList.add('hidden');
+
+    document.querySelector('.controls-container').classList.remove('hidden');
 }
 
 function goToCharacterDetail(characterId) {

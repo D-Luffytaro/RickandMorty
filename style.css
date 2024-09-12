@@ -27,6 +27,27 @@ body {
   background-attachment: fixed;
 }
 
+header {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 150px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+header img {
+  width: 200px;
+  height: auto;
+}
+
 .container {
   max-width: 1040px;
   margin: 0 auto;
@@ -247,7 +268,130 @@ input:-webkit-autofill:focus {
 }
 
 .hidden {
+  display: none !important;
+}
+
+/* Character details page */
+#character-details-page {
   display: none;
+  margin: 0 auto;
+  width: 795px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid var(--System-Black, #000);
+  box-shadow: 1px 1px 0px 1px var(--color-black);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 60px;
+}
+
+#character-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu */
+menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  margin: 0;
+  height: 10px;
+  border-bottom: 2px solid var(--color-black);
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+menu li {
+  display: inline;
+  padding-left: 10px;
+  list-style: none;
+}
+
+menu li:last-of-type {
+  margin-left: auto;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--color-pink);
+}
+
+.time {
+  margin-right: 10px;
+}
+
+/* Info section */
+.all-info {
+  display: flex;
+  margin-left: 60px;
+  margin-top: 30px;
+}
+
+.all-info img {
+  width: 200px;
+  height: 200px;
+}
+
+.info-character {
+  margin-left: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 500px;
+  justify-content: space-evenly;
+}
+
+.info-character h2 {
+  margin: 0;
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.info-character p {
+  margin: 0px;
+  padding: 18px 0 0 2px;
+  font-size: 18px;
+}
+
+.light-grey {
+  color: #808080;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Footer */
+footer {
+  margin-top: 130px;
+  border-top: 2px solid black;
+}
+
+.footer-container {
+  height: 200px;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: flex-end;
+
+  img {
+    width: 100px;
+    height: auto;
+  }
 }
 
 /* Media queries */
@@ -271,12 +415,8 @@ input:-webkit-autofill:focus {
     display: none;
   }
 
-  .page:not(.hidden) {
-    display: block;
-  }
-
   .hidden {
-    display: none;
+    display: none !important;
   }
 }
 

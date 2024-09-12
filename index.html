@@ -14,9 +14,13 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1 class="page-title">Rick and Morty Characters</h1>
+    <header>
+      <div onclick="showCharacterList()" class="logo-container">
+        <img id="some-id" src="Rainbow.svg" />
+      </div>
+    </header>
 
+    <div class="container">
       <div class="controls-container">
         <div class="button-group">
           <button class="filter-button" onclick="showAllCharacters()">
@@ -49,6 +53,12 @@
         <div id="character-details"></div>
       </div>
     </div>
+
+    <footer>
+      <div class="footer-container">
+        <img id="some-id" src="footer.svg" />
+      </div>
+    </footer>
 
     <script src="app.js"></script>
   </body>
