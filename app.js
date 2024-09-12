@@ -28,7 +28,7 @@ function displayCharacters(characters) {
             <p>${character.status}</p>
         </div>
         <div class="card-footer">
-            <button class="btn-icon" title="Resize">
+            <button class="btn-icon" onclick="goToCharacterDetail(${character.id})" title="Show Details">
                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <g id="Icon / Resize">
                    <rect id="Square" x="3.5" y="3.5" width="12" height="12" fill="white" stroke="black"/>
@@ -41,6 +41,32 @@ function displayCharacters(characters) {
 
         charactersGrid.appendChild(charactersCard);
     });
+}
+
+function showCharacterDetails(character) {
+    const detailsSection = document.getElementById('character-details');
+    detailsSection.innerHTML = `
+        <h2>${character.name}</h2>
+        <img src="${character.image}" alt="${character.name}">
+        <p><strong>Status:</strong> ${character.status}</p>
+        <p><strong>Species:</strong> ${character.species}</p>
+        <p><strong>Gender:</strong> ${character.gender}</p>
+        <p><strong>Location:</strong> ${character.location.name}</p>
+    `;
+
+    document.getElementById('character-list-page').classList.add('hidden');
+    document.getElementById('character-details-page').classList.remove('hidden');
+
+    document.querySelector('.controls-container').classList.add('hidden');
+    history.pushState({ page: 'details', characterId: character.id }, '', `?character=${character.id}`);
+}
+
+function goToCharacterDetail(characterId) {
+    const selectedCharacter = allCharacters.find(character => character.id === characterId);
+
+    if (selectedCharacter) {
+        showCharacterDetails(selectedCharacter);
+    }
 }
 
 function displayAliveCharacters() {

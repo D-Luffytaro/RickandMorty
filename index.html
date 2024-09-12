@@ -30,17 +30,24 @@
           </button>
         </div>
 
-        <div class="search-container">
+        <div class="input-container">
+          <input id="name-input" type="text" placeholder="Search..." />
           <input
-            id="name-input"
-            class="search-input"
-            type="text"
-            placeholder="Search..."
+            id="submit-btn"
+            onclick="filterCharactersNames()"
+            type="submit"
+            value="Search"
           />
-          <button class="btn" onclick="filterCharactersNames()">Search</button>
         </div>
       </div>
-      <div id="characters" class="characters-grid"></div>
+
+      <div id="character-list-page" class="page">
+        <div id="characters" class="characters-grid"></div>
+      </div>
+
+      <div id="character-details-page" class="page hidden">
+        <div id="character-details"></div>
+      </div>
     </div>
 
     <script src="app.js"></script>
